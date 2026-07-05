@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>บทเรียนออนไลน์ช่วยสอน</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginPage" class="login-container">
+
+<h1>📚 บทเรียนออนไลน์ช่วยสอน</h1>
+
+<h2>เรื่อง ความหมายและที่มาของศักราช</h2>
+
+<h3>รายวิชา ประวัติศาสตร์</h3>
+
+<h3>ชั้นประถมศึกษาปีที่ 3</h3>
+
+<input
+type="text"
+id="studentName"
+placeholder="กรอกชื่อ - นามสกุล">
+
+<button onclick="login()">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+เข้าสู่บทเรียน
+
+</button>
+
+</div>
+
+<!-- MAIN -->
+
+<div id="mainPage" style="display:none;">
+
+<header>
+
+<h1>
+
+📖 ความหมายและที่มาของศักราช
+
+</h1>
+
+<p id="showName"></p>
+
+<nav>
+
+<button onclick="showSection('pretest')">
+
+ก่อนเรียน
+
+</button>
+
+<button onclick="showSection('lesson')">
+
+เนื้อหา
+
+</button>
+
+<button onclick="showSection('posttest')">
+
+หลังเรียน
+
+</button>
+
+<button onclick="showSection('game')">
+
+เกม
+
+</button>
+
+<button onclick="showSection('result')">
+
+คะแนน
+
+</button>
+
+</nav>
+
+</header>
+
+<!-- PRETEST -->
+
+<section id="pretest" class="content">
+
+<h2>
+
+แบบทดสอบก่อนเรียน
+
+</h2>
+
+<div id="timer">
+
+เวลา
+
+30
+
+วินาที
+
+</div>
+
+<div id="preQuestion">
+
+</div>
+
+<button id="nextBtn">
+
+ข้อถัดไป
+
+</button>
+
+</section>
+
+<!-- LESSON -->
+
+<section id="lesson" class="content">
+
+<h2>
+
+เนื้อหาบทเรียน
+
+</h2>
+
+<div class="tabs">
+
+<button onclick="openTab('tab1')">
+
+ความหมายของศักราช
+
+</button>
+
+<button onclick="openTab('tab2')">
+
+ที่มาของศักราช
+
+</button>
+
+</div>
+
+<div id="tab1" class="tab-content">
+
+<h3>
+
+📅 ความหมายของศักราช
+
+</h3>
+
+<p>
+
+ศักราช คือ ระบบการนับปี
+
+เพื่อใช้กำหนดช่วงเวลา
+
+และบอกลำดับเหตุการณ์ต่าง ๆ
+
+ที่เกิดขึ้นในอดีตจนถึงปัจจุบัน
+
+</p>
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png"
+width="200">
+
+</div>
+
+<div id="tab2"
+
+class="tab-content"
+
+style="display:none;">
+
+<h3>
+
+🏛️ ที่มาของศักราช
+
+</h3>
+
+<p>
+
+ประเทศไทยใช้ศักราชหลายแบบ เช่น
+
+พุทธศักราช (พ.ศ.)
+
+คริสต์ศักราช (ค.ศ.)
+
+มหาศักราช
+
+จุลศักราช
+
+รัตนโกสินทรศก
+
+</p>
+
+<iframe
+
+width="560"
+
+height="315"
+
+src="https://www.youtube.com/embed/k9F0YS09q3M"
+
+title="YouTube"
+
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</section>
+
+<!-- POSTTEST -->
+
+<section id="posttest"
+
+class="content">
+
+<h2>
+
+แบบทดสอบหลังเรียน
+
+</h2>
+
+<div id="postQuestion">
+
+</div>
+
+<button id="nextPost">
+
+ข้อถัดไป
+
+</button>
+
+</section>
+
+<!-- GAME -->
+
+<section id="game"
+
+class="content">
+
+<h2>
+
+🎮 เกมจับคู่
+
+</h2>
+
+<p>
+
+จับคู่ชื่อศักราชให้ถูกต้อง
+
+</p>
+
+<div id="gameBoard">
+
+</div>
+
+</section>
+
+<!-- RESULT -->
+
+<section id="result"
+
+class="content">
+
+<h2>
+
+📊 ผลคะแนน
+
+</h2>
+
+<div class="score-box">
+
+<p>
+
+คะแนนก่อนเรียน
+
+<span id="preScore">
+
+0
+
+</span>
+
+</p>
+
+<p>
+
+คะแนนหลังเรียน
+
+<span id="postScore">
+
+0
+
+</span>
+
+</p>
+
+<p>
+
+ระดับคุณภาพ
+
+<span id="level">
+
+-
+
+</span>
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<button onclick="exitProgram()">
+
+ออกจากโปรแกรม
+
+</button>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
